@@ -49,6 +49,7 @@ squares_occupied = 0
     end
     squares_occupied += 1
   end
-  declare_winner(x_player, o_player, squares_occupied)
+  
+  declare_winner(x_player, o_player)
   people = 'close'
 end

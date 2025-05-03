@@ -71,14 +71,14 @@ def look_at_rows(board, x_player, o_player)
   end
 end
 
-def declare_winner(x_player, o_player, squares)
+def declare_winner(x_player, o_player)
   if x_player.winner == true
     puts "#{x_player.name} is the winner!!!"
   end
   if o_player.winner == true
     puts "#{o_player.name} is the winner!!!"
   end
-  if x_player.winner == false && o_player.winner == false && squares == 9
+  if x_player.winner == false && o_player.winner == false
     puts "Draw!!!"
   end
 end
