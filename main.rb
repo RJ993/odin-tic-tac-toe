@@ -51,6 +51,6 @@ while people == 'open'
 
   declare_winner(x_player, o_player)
   puts 'Do you want to play again?'
-  answer = gets.chomp
-  people == 'close' if answer == no
+  answer = gets.chomp.lowercase
+  people == 'close' if answer == 'no'
 end
