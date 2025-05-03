@@ -1,18 +1,17 @@
-require_relative 'lib/game_mechanics.rb'
-require_relative 'lib/game_elements/players.rb'
-require_relative 'lib/game_elements/board.rb'
+require_relative 'lib/game_mechanics'
+require_relative 'lib/game_elements/players'
+require_relative 'lib/game_elements/board'
+require 'colorize'
 
 people = 'open'
-
 
 puts 'Who is going to be the Xs?'
 x_player = Player.new(gets.chomp, false, false)
 puts 'Who is going to be the Os?'
 o_player = Player.new(gets.chomp, false, false)
 
-
 while people == 'open'
-squares_occupied = 0
+  squares_occupied = 0
 
   x_player.first = false
   o_player.first = false
@@ -49,7 +48,7 @@ squares_occupied = 0
     end
     squares_occupied += 1
   end
-  
+
   declare_winner(x_player, o_player)
   people = 'close'
 end
