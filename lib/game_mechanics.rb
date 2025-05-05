@@ -16,7 +16,8 @@ def first?(x_player, o_player)
 end
 
 def insert_o(board, input)
-  until board.tic_tac_toe_board.include?(input) && input != 'X' && input != '|' && input != '-' && input != ' '
+  rejected_input = ['|', ' ', 'X', 'O', '-']
+  until board.tic_tac_toe_board.include?(input) && rejected_input.any? { |char| input.include?(char) } == false && input != '' # rubocop:disable Layout/LineLength
     puts 'It is not an acceptable input. Put the number indicating where you want to put your O.'
     input = gets.chomp
   end
@@ -24,7 +25,8 @@ def insert_o(board, input)
 end
 
 def insert_x(board, input)
-  until board.tic_tac_toe_board.include?(input) && input != 'O' && input != '|' && input != '-' && input != ' '
+  rejected_input = ['|', ' ', 'X', 'O', '-']
+  until board.tic_tac_toe_board.include?(input) && rejected_input.any? { |char| input.include?(char) } == false && input != '' # rubocop:disable Layout/LineLength
     puts 'It is not an acceptable input. Put the number indicating where you want to put your X.'
     input = gets.chomp
   end
