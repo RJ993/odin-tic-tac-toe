@@ -1,3 +1,5 @@
+require 'rainbow'
+
 class Board
   attr_accessor :quads, :tic_tac_toe_board
 
