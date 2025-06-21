@@ -22,21 +22,17 @@ class Game
     puts Rainbow('Who is going to be the Os?').color(:aquamarine)
     @o_player = Player.new(gets.chomp)
     @squares_occupied = 0
-    @x_player.initiate_color
-    @o_player.initiate_color
   end
 
   def play
     while x_player.winner == false && o_player.winner == false && squares_occupied < 9
-      x_then_o
-      o_then_x
-      @squares_occupied += 1
+      x_then_o if x_player.first == true
+      o_then_x if o_player.first == true
+      @squares_occupied += 1 if x_player.winner == false && o_player.winner == false
     end
   end
 
   def x_then_o
-    return unless x_player.first == true
-
     puts Rainbow('Where would you like to put your X?').color(:aquamarine)
     x_player.insert_x(board, gets.chomp)
     @squares_occupied += 1
@@ -49,8 +45,6 @@ class Game
   end
 
   def o_then_x
-    return unless o_player.first == true
-
     puts Rainbow('Where would you like to put your O?').color(:aquamarine)
     o_player.insert_o(board, gets.chomp)
     @squares_occupied += 1
@@ -103,5 +97,10 @@ class Game
     x_player.winner = false
     o_player.winner = false
     @squares_occupied = 0
+  end
+
+  def player_colors
+    @x_player.initiate_color
+    @o_player.initiate_color
   end
 end

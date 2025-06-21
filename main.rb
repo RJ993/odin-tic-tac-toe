@@ -8,6 +8,7 @@ game = Game.new
 
 while people == 'open'
   game.refresh_stats
+  game.player_colors
   game.first?
   game.play
   game.declare_winner
